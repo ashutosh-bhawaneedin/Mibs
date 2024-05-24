@@ -117,9 +117,17 @@ WSGI_APPLICATION = "Mibs.wsgi.application"
 
 
 DATABASES = {
-   'default': dj_database_url.parse('postgresql://postgres:aUVJPCHMQllYuwBxlVKfUpSEipYDAdja@monorail.proxy.rlwy.net:43696/railway')
+   'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
-CELERY_BROKER_URL = 'redis://default:ipaFQlPNOayGJuPuulUsxotFEIZPEqbV@roundhouse.proxy.rlwy.net:24784'
+CELERY_BROKER_URL = os.environ['REDIS_URL']
+# settings.py file
+CELERY_ACCEPT_CONTENT   = ['application/json']
+CELERY_RESULT_SERIALIZER  = 'json'
+CELERY_TASK_SELERLIZER  = 'json'
+CELERY_TIMEZONE  = 'Asia/Kolkata'
+CELERY_RESULT_BACKEND  = 'django-db'
+#CELERY BEAT
+CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
