@@ -113,21 +113,16 @@ WSGI_APPLICATION = "Mibs.wsgi.application"
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-
-
 DATABASES = {
-   'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': '_b71435c7b1a4',
+        'USER': '_d58a8f69c5642c09',
+        'PASSWORD': '_bffa48fa5315a2a4ea8ceadc061504',
+        'HOST': 'primary.mibs--6drmq57rxtn4.addon.code.run',
+        'PORT': '5432',
+    }
 }
-CELERY_BROKER_URL = os.environ['REDIS_URL']
-# settings.py file
-CELERY_ACCEPT_CONTENT   = ['application/json']
-CELERY_RESULT_SERIALIZER  = 'json'
-CELERY_TASK_SELERLIZER  = 'json'
-CELERY_TIMEZONE  = 'Asia/Kolkata'
-CELERY_RESULT_BACKEND  = 'django-db'
-#CELERY BEAT
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
