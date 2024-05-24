@@ -15,6 +15,7 @@ import os
 from django.contrib.messages import constants as messages
 from os.path import join
 import environ
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -113,28 +114,12 @@ WSGI_APPLICATION = "Mibs.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-if env("DATABASE_URL", default=None):
-    DATABASES = {
-        "default": env.db(),
-    }
-else:
-    DATABASES = {
-        "default": {
-            "ENGINE": env("DB_ENGINE", default="django.db.backends.sqlite3"),
-            "NAME": env(
-                "DB_NAME",
-                default=os.path.join(
-                    BASE_DIR,
-                    "TestDB_Mibs.sqlite3",
-                ),
-            ),
-            "USER": env("DB_USER", default=""),
-            "PASSWORD": env("DB_PASSWORD", default=""),
-            "HOST": env("DB_HOST", default=""),
-            "PORT": env("DB_PORT", default=""),
-        }
-    }
 
+
+DATABASES = {
+   'default': dj_database_url.parse('postgresql://postgres:aUVJPCHMQllYuwBxlVKfUpSEipYDAdja@monorail.proxy.rlwy.net:43696/railway')
+}
+CELERY_BROKER_URL = 'redis://default:ipaFQlPNOayGJuPuulUsxotFEIZPEqbV@roundhouse.proxy.rlwy.net:24784'
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
