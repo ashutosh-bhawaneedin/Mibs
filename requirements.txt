@@ -20,6 +20,7 @@ django-mathfilters
 django-model-utils
 django-simple-history
 django-widget-tweaks
+dj-database-url 
 et-xmlfile
 html5lib
 idna
