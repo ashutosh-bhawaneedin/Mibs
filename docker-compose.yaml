@@ -8,7 +8,7 @@ services:
       - 8000:8000
     restart: unless-stopped
     environment:
-      DATABASE_URL: "postgres://postgres:postgres@db:5432/Mibs"
+      DATABASE_URL: "postgres://mibs_loh6_user:6ke3muZgk7I9xjq74KpgrHpaT1qce9Ya@dpg-cpa22t4f7o1s73a8i47g-a/mibs_loh6"
     command: ./entrypoint.sh
     depends_on:
       db:
@@ -17,9 +17,9 @@ services:
   db:
     image: postgres:16-bullseye
     environment:
-      POSTGRES_DB: Mibs
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mibs_loh6
+      POSTGRES_USER: mibs_loh6_user
+      POSTGRES_PASSWORD: 6ke3muZgk7I9xjq74KpgrHpaT1qce9Ya
     ports:
       - 5432:5432
     restart: unless-stopped
