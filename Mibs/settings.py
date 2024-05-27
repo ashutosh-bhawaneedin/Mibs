@@ -116,10 +116,10 @@ WSGI_APPLICATION = "Mibs.wsgi.application"
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '_b71435c7b1a4',
-        'USER': '_d58a8f69c5642c09',
-        'PASSWORD': '_bffa48fa5315a2a4ea8ceadc061504',
-        'HOST': 'primary.mibs--6drmq57rxtn4.addon.code.run',
+        'NAME': 'mibs_vb2c',
+        'USER': 'mibs_vb2c_user',
+        'PASSWORD': 'PF6ftlGcgovIuNL9jlCEQmqI36RxYxAR',
+        'HOST': 'dpg-cpa1o2kf7o1s73a8cpk0-a',
         'PORT': '5432',
     }
 }
