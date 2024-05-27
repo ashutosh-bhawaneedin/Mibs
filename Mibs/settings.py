@@ -114,14 +114,11 @@ WSGI_APPLICATION = "Mibs.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'mibs_vb2c',
-        'USER': 'mibs_vb2c_user',
-        'PASSWORD': 'PF6ftlGcgovIuNL9jlCEQmqI36RxYxAR',
-        'HOST': 'dpg-cpa1o2kf7o1s73a8cpk0-a',
-        'PORT': '5432',
-    }
+    'default': dj_database_url.config(
+        # Replace this value with your local database's connection string.
+        default='postgres://mibs_loh6_user:6ke3muZgk7I9xjq74KpgrHpaT1qce9Ya@dpg-cpa22t4f7o1s73a8i47g-a.oregon-postgres.render.com/mibs_loh6',
+        conn_max_age=600
+    )
 }
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
